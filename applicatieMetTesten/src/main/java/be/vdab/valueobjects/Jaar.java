@@ -10,6 +10,19 @@ public class Jaar {
 		return jaar % 4 == 0 && jaar % 100 != 0 || jaar %400 == 0;
 	}
 	
+	@Override
+	public boolean equals(Object object){
+		if (! (object instanceof Jaar)){
+			return false;
+		}
+		Jaar anderJaar = (Jaar) object;
+		return jaar == anderJaar.jaar;
+	}
+	@Override
+	public int hashCode(){
+		return jaar;
+	}
+	
 //	public boolean isSchrikkeljaar(){
 //		if (jaar % 400 == 0) {
 //			return true;

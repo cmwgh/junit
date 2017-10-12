@@ -4,6 +4,9 @@ import java.math.BigDecimal;
 public class Rekening {
 	private BigDecimal saldo = BigDecimal.ZERO;
 	public void storten(BigDecimal bedrag) {
+		if (bedrag.compareTo(BigDecimal.ZERO) <= 0) {
+			throw new IllegalArgumentException("Bedrag moet positief zijn");
+		}
 		saldo = saldo.add(bedrag);
 //		throw new UnsupportedOperationException();
 	}
@@ -11,4 +14,5 @@ public class Rekening {
 		return saldo;
 //		throw new UnsupportedOperationException();
 	}
+
 }
