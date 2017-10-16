@@ -10,6 +10,9 @@ public class LandService {
 	}
 public BigDecimal findVerhoudingOppervlakteLandTovOppervlakteAlleLanden(
 String landcode) {
-throw new UnsupportedOperationException();
+	Land land = landRepository.read(landcode);
+	int oppervlakteAlleLanden = landRepository.findOppervlakteAlleLanden();
+	return new BigDecimal(land.getOppervlakte())
+			.divide(BigDecimal.valueOf(oppervlakteAlleLanden));
 }
 }
